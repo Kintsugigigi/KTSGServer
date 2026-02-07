@@ -1,0 +1,32 @@
+syntax = "proto3";
+package KTSG.Proto;
+
+import "google/protobuf/descriptor.proto";
+
+enum ResultCode 
+{
+  NONE = 0;
+  SUCCESS = 1;
+  AUTH_FAILED = 2;
+  VERSION_MISMATCH = 3;
+  SERVER_MAINTENANCE = 4;
+}
+
+message ReqLogin // RspLogin
+{
+  string account = 1;         
+  string password = 2;        
+  string client_version = 3;  
+}
+
+message CoinAdd 
+{
+  int32 add_count = 1;
+}
+
+message RspLogin 
+{
+  ResultCode result = 1;
+  string user_uid = 2;
+  string session_key = 3; 
+}
