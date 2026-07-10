@@ -1,0 +1,12 @@
+D:\KTSGServer\_codex_bin\KTSGServerCore\LiteNetLib.deps.json
+D:\KTSGServer\_codex_bin\KTSGServerCore\LiteNetLib.dll
+D:\KTSGServer\_codex_bin\KTSGServerCore\LiteNetLib.pdb
+D:\KTSGServer\_codex_obj\KTSGServerCore\LiteNetLib.GeneratedMSBuildEditorConfig.editorconfig
+D:\KTSGServer\_codex_obj\KTSGServerCore\LiteNetLib.AssemblyInfoInputs.cache
+D:\KTSGServer\_codex_obj\KTSGServerCore\LiteNetLib.AssemblyInfo.cs
+D:\KTSGServer\_codex_obj\KTSGServerCore\LiteNetLib.csproj.CoreCompileInputs.cache
+D:\KTSGServer\_codex_obj\KTSGServerCore\LiteNetLib.sourcelink.json
+D:\KTSGServer\_codex_obj\KTSGServerCore\LiteNetLib.dll
+D:\KTSGServer\_codex_obj\KTSGServerCore\refint\LiteNetLib.dll
+D:\KTSGServer\_codex_obj\KTSGServerCore\LiteNetLib.pdb
+D:\KTSGServer\_codex_obj\KTSGServerCore\ref\LiteNetLib.dll

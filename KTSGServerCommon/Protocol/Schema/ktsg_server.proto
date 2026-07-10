@@ -1,0 +1,515 @@
+syntax = "proto3";
+package KTSG.Proto;
+
+enum ResultCode
+{
+  None = 0;
+  Success = 1;
+  Fail = 2;
+}
+
+message Ping 
+{
+  uint32 seq = 1;
+  int64 client_send_ms = 2;
+}
+
+message Pong 
+{
+  uint32 seq = 1;
+  int64 client_send_ms = 2;
+  int64 server_recv_ms = 3;
+  int64 server_send_ms = 4;
+}
+
+message Result ///
+{
+  ResultCode Code = 1;
+  string Msg = 2;
+}
+
+message ReqRegister //RspRegister
+{
+  string account = 1;
+  string password = 2;
+}
+
+message ReqLogin //RspLogin
+{
+  string account = 1;
+  string password = 2;
+}
+
+message RspRegister
+{
+  Result Result = 1;
+}
+
+message RspLogin
+{
+  Result Result = 1;
+  string user_uid = 2;
+}
+
+message ReqGetPlayerData // RspGetPlayerData
+{
+}
+
+message RspGetPlayerData
+{
+  Result result = 1;
+  NPlayerProfile player = 2;
+}
+
+message ReqCreateRole // RspCreateRole
+{
+  int32 role_cid = 1;
+}
+
+message RspCreateRole
+{
+  Result result = 1;
+  NRoleSummary summary = 2;
+}
+
+message ReqRoleData // RspRoleData
+{
+  string role_id = 1;
+}
+
+message RspRoleData
+{
+  Result result = 1;
+  NRoleProfile role = 2;
+}
+
+message ReqRoleAddStackItem //RspRoleInventoryChange
+{
+  int32 config_id = 1;
+  int32 count = 2;
+}
+
+message ReqRoleConsumeStackItem //RspRoleInventoryChange
+{
+  int32 config_id = 1;
+  int32 count = 2;
+}
+
+message ReqRoleAddCurrency //RspRoleInventoryChange
+{
+  int32 currency_cid = 1;
+  int32 count = 2;
+}
+
+message ReqRoleConsumeCurrency //RspRoleInventoryChange
+{
+  int32 currency_cid = 1;
+  int32 count = 2;
+}
+
+message ReqRoleRemoveInstanceItem //RspRoleInventoryChange
+{
+  int32 item_type = 1;
+  int64 instance_id = 2;
+}
+
+message ReqRoleSwapBackpackSlot //RspRoleInventoryChange
+{
+  int32 slot_a = 1;
+  int32 slot_b = 2;
+}
+
+message ReqUseConsumable //RspUseConsumable
+{
+  int32 consumable_slot_index = 1;
+}
+
+message ReqTryUnlockParentQuestSignal //RspRoleSignalChange
+{
+  int32 parent_quest_id = 1;
+}
+
+message ReqTryBranchSubQuestSignal //RspRoleSignalChange
+{
+  int32 sub_quest_id = 1;
+  int32 branch_id = 2;
+}
+
+message ReqSetBaseProgress // RspRoleSignalChange
+{
+  int32 interactable_id = 1;
+  int32 base_progress = 2;
+}
+
+message ReqRoleRevivePoint // RspRoleRevivePoint
+{
+}
+
+message NRoleRevivePoint
+{
+  int32 scene_cid = 1;
+  int32 revive_point_cid = 2;
+}
+
+message ReqSaveRoleRevivePoint // RspRoleRevivePoint
+{
+  NRoleRevivePoint revive_point = 1;
+}
+
+message RspRoleRevivePoint
+{
+  Result result = 1;
+  NRoleRevivePoint revive_point = 2;
+}
+
+message RspRoleInventoryChange
+{
+  Result result = 1;
+  NRoleInventoryDelta delta = 2;
+}
+
+message ReqRoleUpgradeWeapon // RspRoleUpgradeWeapon
+{
+  int64 instance_id = 1;
+  int32 mat_3001_count = 2;
+  int32 mat_3002_count = 3;
+  int32 mat_3003_count = 4;
+}
+
+message RspRoleUpgradeWeapon
+{
+  Result result = 1;
+  NRoleInventoryDelta delta = 2;
+}
+
+message RspUseConsumable
+{
+  Result result = 1;
+  NRoleInventoryDelta delta = 2;
+}
+
+message ReqRoleApplyStatPoints // RspRoleApplyStatPoints
+{
+  repeated int32 detail_stat_points = 1;
+}
+
+message RspRoleApplyStatPoints
+{
+  Result result = 1;
+  repeated int32 stat_points = 2;
+  NRoleInventoryDelta delta = 3;
+}
+
+message RspRoleSignalChange
+{
+  Result result = 1;
+  NRoleSignalChange change = 2;
+}
+
+message ReqSceneEnemies // RspSceneEnemies
+{
+  int32 scene_cid = 1;
+}
+
+message RspSceneEnemies
+{
+  Result result = 1;
+  repeated NEnemyItem enemies = 2;
+}
+
+message ReqEnemyDropReward // RspEnemyDropReward
+{
+  int64 enemy_uid = 1;
+  int32 config_id = 2;
+}
+
+message RspEnemyDropReward
+{
+  Result result = 1;
+  NRoleInventoryDelta delta = 2;
+  NGrantedReward reward = 3;
+}
+
+message NEnemyItem ///
+{
+  Result result = 1;
+  int64 enemy_uid = 2;
+  int32 config_id = 3;
+  int32 weapon_id = 4;
+  repeated int32 stat_points = 5;
+  repeated NAttrPair override_attrs = 6;
+  repeated int32 buffs = 7;
+  repeated int32 patrol_way_points = 8;
+}
+
+message NAttrPair ///
+{
+  int32 attr_cid = 1;
+  float value = 2;
+}
+
+
+message NItem ///
+{
+  int64 instance_id = 1;
+  int32 config_id = 2;
+  int32 count = 3;
+  int32 item_type = 4;
+  oneof detail
+  {
+    NWeaponItem weapon = 10;
+  }
+}
+
+message NInventorySlotDelta ///
+{
+  int32 slot_index = 1;
+  bool is_empty = 2;
+  NItem item = 3;
+}
+
+message NInventorySlotSnapshot ///
+{
+  int32 slot_index = 1;
+  NItem item = 2;
+}
+
+message NWeaponSlotDelta ///
+{
+  int32 slot_index = 1;
+  int64 instance_id = 2;
+}
+
+message NEquipSlotDelta ///
+{
+  int32 slot_index = 1;
+  int64 instance_id = 2;
+}
+
+message NConsumableSlotDelta ///
+{
+  int32 slot_index = 1;
+  int32 config_id = 2;
+}
+
+message NCurrencyDelta ///
+{
+  int32 currency_cid = 1;
+  int32 count = 2;
+}
+
+enum ERewardSourceType
+{
+  RewardSource_Unknown = 0;
+  RewardSource_Quest = 1;
+  RewardSource_EnemyDrop = 2;
+  RewardSource_Chest = 3;
+  RewardSource_Shop = 4;
+}
+
+message NGrantedRewardEntry
+{
+  int32 config_id = 1;
+  int32 count = 2;
+  int32 level = 3;
+  bool is_currency = 4;
+  int32 currency_index = 5;
+}
+
+message NGrantedReward
+{
+  ERewardSourceType source_type = 1;
+  int32 source_id = 2;
+  repeated NGrantedRewardEntry entries = 3;
+}
+
+message NRoleInventoryDelta ///
+{
+  repeated NInventorySlotDelta backpack_slots = 1;
+  repeated NWeaponSlotDelta weapon_slot_deltas = 2;
+  repeated NEquipSlotDelta equip_slot_deltas = 3;
+  repeated NConsumableSlotDelta consumable_slot_deltas = 4;
+  repeated NCurrencyDelta currency_deltas = 5;
+}
+
+message ReqShopConfig // RspShopConfig
+{
+  int32 shop_id = 1;
+}
+
+message NShopItem
+{
+  int32 item_config_id = 1;
+  int32 currency_id = 2;
+  int32 currency_count = 3;
+}
+
+message RspShopConfig
+{
+  Result result = 1;
+  repeated NShopItem buy_items = 2;
+  repeated NShopItem sell_items = 3;
+}
+
+enum EShopTradeMode
+{
+  ShopTradeMode_None = 0;
+  ShopTradeMode_Buy = 1;
+  ShopTradeMode_Sell = 2;
+}
+
+message ReqShopTrade // RspShopTrade
+{
+  int32 shop_id = 1;
+  EShopTradeMode mode = 2;
+  int32 item_config_id = 3;
+  int32 currency_id = 4;
+  int32 unit_price = 5;
+  int32 count = 6;
+}
+
+message RspShopTrade
+{
+  Result result = 1;
+  NRoleInventoryDelta delta = 2;
+  NGrantedReward reward = 3;
+}
+
+message NSubQuestProgressDelta
+{
+  int32 sub_quest_id = 1;
+  int32 slot_index = 2;
+  int32 count = 3;
+}
+
+message NRoleSignalChange
+{
+  NRoleInventoryDelta inventory_delta = 1;
+  repeated NParentQuestSnapshot quest_state_snapshot = 2;
+  repeated NInteractableProgressSnapshot interactable_snapshot = 3;
+  repeated int32 active_waypoint_ids = 4;
+  NGrantedReward reward = 5;
+  bool active_waypoint_ids_changed = 6;
+}
+
+message NParentQuestSnapshot ///
+{
+  int32 parent_quest_id = 1;
+  int32 parent_state = 2;
+  int32 current_sub_quest_id = 3;
+  repeated NQuestCondProgress current_progress = 4;
+}
+
+message NQuestCondProgress ///
+{
+  int32 slot_index = 1;
+  int32 count = 2;
+}
+
+message NInteractableProgressSnapshot {
+  int32 interactable_id = 1;
+  int32 base_progress = 2;
+  int32 resolved_progress = 3;
+}
+
+
+
+message NWeaponItem ///
+{
+  int32 level = 1;
+  float exp = 2;
+}
+
+message NCurrencyItem ///
+{
+  int32 Cid = 1;
+  int32 Count = 2;
+}
+
+message NPlayerProfile ///
+{
+  NSocialProfile SocialProfile = 1;
+  repeated NRoleSummary RoleSums = 2;
+  repeated NFriendItem Friends = 3;
+  repeated NFriendRequestItem FriendRequests = 4;
+}
+
+message NRoleSummary ///
+{
+  string RoleId = 1;
+  int32 RoleCid = 2;
+  int32 WeaponId = 3;
+  repeated int32 StatPoints = 4;
+}
+
+message NRoleProfile ///
+{
+  string RoleId = 1;
+  int32 RoleCid = 2;
+  repeated NCurrencyItem Currencies = 3;
+  repeated int32 StatPoints = 4;
+  repeated NInventorySlotSnapshot BackpackSlots = 5;
+  repeated int64 WeaponSlots = 6;
+  repeated int64 EquipSlots = 7;
+  repeated int32 ConsumableSlots = 8;
+  map<int32, NParentQuestSnapshot> ParentQuestSnapshots = 9;
+  map<int32, NInteractableProgressSnapshot> InteractableProgresses = 10;
+  repeated int32 active_waypoint_ids = 11;
+}
+
+message NtfWayPointTrigger
+{
+  int32 waypoint_id = 1;
+}
+
+message NSocialProfile ///
+{
+  string Uid = 1;
+  string Username = 2;
+  int32 AvatarCid = 3;
+}
+
+message NFriendItem ///
+{
+  NSocialProfile profile = 1;
+  bool is_online = 2;
+}
+
+message NFriendRequestItem 
+{
+  NSocialProfile profile = 1;
+  int64 request_time = 2;
+}
+
+message NFriendChatSession 
+{
+  string peer_uid = 1;
+  repeated NChatMsg messages = 2;
+}
+
+message NChatMsg 
+{
+  string sender_uid = 1;
+  string receiver_uid = 2;
+  int64 unix_time_ms = 3;
+  string text = 4;
+}
+
+message ReqRoleEquipWeaponSlot // RspRoleInventoryChange
+{
+  int64 instance_id = 1;
+  int32 slot_index = 2;
+}
+
+message ReqRoleEquipEquipSlot // RspRoleInventoryChange
+{
+  int32 item_type = 1;
+  int64 instance_id = 2;
+  int32 slot_index = 3;
+}
+
+message ReqRoleBindConsumableSlot // RspRoleInventoryChange
+{
+  int32 config_id = 1;
+  int32 slot_index = 2;
+}

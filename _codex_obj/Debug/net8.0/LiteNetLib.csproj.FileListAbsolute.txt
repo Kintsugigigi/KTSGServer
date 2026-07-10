@@ -1,0 +1,6 @@
+D:\KTSGServer\_codex_obj\Debug\net8.0\LiteNetLib.csproj.AssemblyReference.cache
+D:\KTSGServer\_codex_obj\Debug\net8.0\LiteNetLib.GeneratedMSBuildEditorConfig.editorconfig
+D:\KTSGServer\_codex_obj\Debug\net8.0\LiteNetLib.AssemblyInfoInputs.cache
+D:\KTSGServer\_codex_obj\Debug\net8.0\LiteNetLib.AssemblyInfo.cs
+D:\KTSGServer\_codex_obj\Debug\net8.0\LiteNetLib.csproj.CoreCompileInputs.cache
+D:\KTSGServer\_codex_obj\Debug\net8.0\LiteNetLib.sourcelink.json

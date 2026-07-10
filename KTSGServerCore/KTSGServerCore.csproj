@@ -1,0 +1,40 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net8.0</TargetFramework>
+        <OutputType>Exe</OutputType>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+        <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\KTSGServerCommon\KTSGServerCommon.csproj" />
+      <ProjectReference Include="..\LiteNetLib\LiteNetLib.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="MemoryPack" Version="1.21.4" />
+      <PackageReference Include="MongoDB.Driver" Version="3.7.1" />
+      <PackageReference Include="Serilog.Sinks.Console" Version="6.0.0" />
+      <PackageReference Include="Tomlyn" Version="2.3.0" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Content Include="appconfig.toml">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </Content>
+    </ItemGroup>
+
+    <ItemGroup>
+      <Folder Include="Data\LubanBin\" />
+      <Folder Include="Data\LubanGen\" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Content Include="Data\LubanBin\**\*.bytes">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </Content>
+    </ItemGroup>
+
+</Project>

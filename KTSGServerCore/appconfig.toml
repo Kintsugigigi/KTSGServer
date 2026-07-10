@@ -1,0 +1,12 @@
+LogicalFrameRate = 30
+
+[Server]
+BindAddress = "127.0.0.1"
+TcpPort = 7000
+UdpPort = 7001
+MaxSnapshotFrames = 90
+
+[Database]
+Enabled = true
+ConnectionString = "mongodb://127.0.0.1:27017"
+DatabaseName = "ktsg_server"

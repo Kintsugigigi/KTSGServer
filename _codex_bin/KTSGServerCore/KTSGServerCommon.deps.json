@@ -1,0 +1,71 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v8.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v8.0": {
+      "KTSGServerCommon/1.0.0": {
+        "dependencies": {
+          "Google.Protobuf": "3.34.0-rc1",
+          "LiteNetLib": "1.0.0",
+          "Serilog": "4.3.1-dev-02406"
+        },
+        "runtime": {
+          "KTSGServerCommon.dll": {}
+        }
+      },
+      "Google.Protobuf/3.34.0-rc1": {
+        "runtime": {
+          "lib/net5.0/Google.Protobuf.dll": {
+            "assemblyVersion": "3.34.0.0",
+            "fileVersion": "3.34.0.0"
+          }
+        }
+      },
+      "Serilog/4.3.1-dev-02406": {
+        "runtime": {
+          "lib/net8.0/Serilog.dll": {
+            "assemblyVersion": "4.3.0.0",
+            "fileVersion": "4.3.0.0"
+          }
+        }
+      },
+      "LiteNetLib/1.0.0": {
+        "runtime": {
+          "LiteNetLib.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      }
+    }
+  },
+  "libraries": {
+    "KTSGServerCommon/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Google.Protobuf/3.34.0-rc1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-e+4da8rlFxuhfyyK94WmcNjMYmUdDw5aY7wIAGoAGVhNpV/y1osdBi7T6B1Wl+9Gx5vO5h8ouCIK5Y6lA7RHLQ==",
+      "path": "google.protobuf/3.34.0-rc1",
+      "hashPath": "google.protobuf.3.34.0-rc1.nupkg.sha512"
+    },
+    "Serilog/4.3.1-dev-02406": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-53r65Q0DSy2kAMmJZc5kXQKLbs0dDMMkhfVeM4uf8D7g5nOwrTrxt0eielIJ8sOw0XDfFWlXuO68wOQEudcTfg==",
+      "path": "serilog/4.3.1-dev-02406",
+      "hashPath": "serilog.4.3.1-dev-02406.nupkg.sha512"
+    },
+    "LiteNetLib/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

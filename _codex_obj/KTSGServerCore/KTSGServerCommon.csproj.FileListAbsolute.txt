@@ -1,0 +1,14 @@
+D:\KTSGServer\_codex_bin\KTSGServerCore\KTSGServerCommon.deps.json
+D:\KTSGServer\_codex_bin\KTSGServerCore\KTSGServerCommon.dll
+D:\KTSGServer\_codex_bin\KTSGServerCore\KTSGServerCommon.pdb
+D:\KTSGServer\_codex_obj\KTSGServerCore\KTSGServerCommon.csproj.AssemblyReference.cache
+D:\KTSGServer\_codex_obj\KTSGServerCore\KTSGServerCommon.GeneratedMSBuildEditorConfig.editorconfig
+D:\KTSGServer\_codex_obj\KTSGServerCore\KTSGServerCommon.AssemblyInfoInputs.cache
+D:\KTSGServer\_codex_obj\KTSGServerCore\KTSGServerCommon.AssemblyInfo.cs
+D:\KTSGServer\_codex_obj\KTSGServerCore\KTSGServerCommon.csproj.CoreCompileInputs.cache
+D:\KTSGServer\_codex_obj\KTSGServerCore\KTSGServerCommon.sourcelink.json
+D:\KTSGServer\_codex_obj\KTSGServerCore\KTSGServ.DEBC7BB6.Up2Date
+D:\KTSGServer\_codex_obj\KTSGServerCore\KTSGServerCommon.dll
+D:\KTSGServer\_codex_obj\KTSGServerCore\refint\KTSGServerCommon.dll
+D:\KTSGServer\_codex_obj\KTSGServerCore\KTSGServerCommon.pdb
+D:\KTSGServer\_codex_obj\KTSGServerCore\ref\KTSGServerCommon.dll
